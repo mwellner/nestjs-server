@@ -2,13 +2,12 @@ import { Module } from '@nestjs/common';
 
 import { TypeOrmModule } from '@nestjs/typeorm';
 
-import { UserModule } from './user/user.module';
 import { CourseModule } from './course/course.module';
 import { HbsModule } from './hbs/hbs.module';
+import { UserModule } from './user/user.module';
 
 @Module({
   imports: [
-    UserModule,
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: 'localhost',
@@ -21,6 +20,7 @@ import { HbsModule } from './hbs/hbs.module';
     }),
     CourseModule,
     HbsModule,
+    UserModule,
   ],
 })
 export class AppModule {}

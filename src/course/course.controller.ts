@@ -18,11 +18,11 @@ export class CourseController {
 
   @Post()
   async addCourse(@Body() body: Course) {
-    return this.courseService.upsert(body);
+    return this.courseService.save(body);
   }
 
   @Put()
   async updateCourse(@Body() body: Course) {
-    return this.courseService.upsert(body);
+    return this.courseService.save(body);
   }
 }

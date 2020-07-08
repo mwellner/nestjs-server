@@ -18,7 +18,10 @@ export class CourseService {
     return this.courseRepository.findOne(id);
   }
 
-  async upsert(course: Course): Promise<Course> {
+  /**
+   * Create or update, upsert
+   */
+  async save(course: Course): Promise<Course> {
     const newCourse = await this.courseRepository.save(course);
     return newCourse;
   }
