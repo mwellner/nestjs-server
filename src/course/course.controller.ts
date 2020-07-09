@@ -1,4 +1,13 @@
-import { Controller, Get, Body, Post, Param, Put } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Body,
+  Post,
+  Param,
+  Put,
+  ParseIntPipe,
+} from '@nestjs/common';
+
 import { CourseService } from './course.service';
 import { Course } from './course.entity';
 
@@ -12,7 +21,7 @@ export class CourseController {
   }
 
   @Get(':id')
-  async findOne(@Param('id') id: string): Promise<Course> {
+  async findOne(@Param('id', ParseIntPipe) id: number): Promise<Course> {
     return this.courseService.findOne(id);
   }
 
